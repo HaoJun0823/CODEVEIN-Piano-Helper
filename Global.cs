@@ -12,27 +12,26 @@ namespace CODEVEINPianoHelper
     class Global
     {
 
-        public static IDictionary<String,PianoKey> PianoKeyDictionary = new Dictionary<String, PianoKey>();
-        public static IList<ScriptCommand> ScriptCommandList = new List<ScriptCommand>();
+        public static IDictionary<String, PianoKey> PianoKeyDictionary;
+        public static IList<ScriptCommand> ScriptCommandList;
         public static Thread MusicThread;
-        public static Form MainForm = new Form_Main();
-        public static XboxController XboxController = new XboxController();
+        public static Form MainForm;
+        public static XboxController XboxController;
         private static ConcurrentQueue<String> MessageQueue;
-        public static int delay = 100;
+        public static int delay;
 
 
-        public static void Initialization()
+        public static void Initilization()
         {
-            
-
-
+            PianoKeyDictionary = new Dictionary<String, PianoKey>();
+            ScriptCommandList = new List<ScriptCommand>(); MainForm = new Form_Main(); XboxController = new XboxController(); delay = 100;
         }
 
         public static void PushScriptCommandToLog()
         {
             int i = 0;
             StringBuilder strBuild = new StringBuilder("Run Command List:");
-            foreach(ScriptCommand command in ScriptCommandList)
+            foreach (ScriptCommand command in ScriptCommandList)
             {
                 strBuild.Append(i);
                 if (command.Type == CommandType.Time)
@@ -52,7 +51,7 @@ namespace CODEVEINPianoHelper
             }
 
 
-            PushMessage(LogLevel.INFO,strBuild.ToString());
+            PushMessage(LogLevel.INFO, strBuild.ToString());
         }
 
         private static String GetLogLevelString(LogLevel level)
@@ -80,7 +79,7 @@ namespace CODEVEINPianoHelper
 
         public static void PushMessage(LogLevel level, String str)
         {
-            if(MessageQueue == null)
+            if (MessageQueue == null)
             {
                 MessageQueue = new ConcurrentQueue<String>();
             }

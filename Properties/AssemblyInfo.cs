@@ -5,12 +5,12 @@ using System.Runtime.InteropServices;
 // 有关程序集的一般信息由以下
 // 控制。更改这些特性值可修改
 // 与程序集关联的信息。
-[assembly: AssemblyTitle("CODEVEINPianoHelper")]
-[assembly: AssemblyDescription("")]
+[assembly: AssemblyTitle("CODEVEIN Piano Helper")]
+[assembly: AssemblyDescription("Simulate the Xbox controller to play the piano in the game.")]
 [assembly: AssemblyConfiguration("")]
 [assembly: AssemblyCompany("")]
-[assembly: AssemblyProduct("CODEVEINPianoHelper")]
-[assembly: AssemblyCopyright("Copyright ©  2020")]
+[assembly: AssemblyProduct("CODEVEIN Piano Helper")]
+[assembly: AssemblyCopyright("Copyright ©  2020 HaoJun0823.")]
 [assembly: AssemblyTrademark("")]
 [assembly: AssemblyCulture("")]
 

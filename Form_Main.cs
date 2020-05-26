@@ -121,6 +121,7 @@ namespace CODEVEINPianoHelper
 
 https://github.com/ViGEm/ViGEmBus
 
+When you hear a prompt similar to ""insert device"", the program will create a fake Xbox controller, which means this tool will have an effect! (Please ensure that you do not customize your controller buttons).
 This tool is implemented through ViGemBus and virtualizes the Xbox 360 controller, so when you use it, please make sure that your little cutie stays in front of the piano(and is not sleeping)!
 Then, you can press the button on the left to let your little partner hit the keys of the piano.If sometimes it doesn't work, please adjust the sensitivity (this option is used to simulate the reaction speed of the XBOX handle when it is pressed, the unit is Milliseconds, default 100).
 
@@ -129,11 +130,14 @@ When you have written or shared the script yourself, you can paste it in the box
 ""T"" means delay, followed by a number(milliseconds), which means that the next operation will wait for X seconds to execute.
 The rest is the same as the button on the left, such as ""C2"", which is to simulate clicking the ""C2"" button on the left.
 Please use "";"" to split each instruction.If there is an error in the instruction, the log will prompt, of course, the operation status will also be written in the log.
+Please ensure that your script is continuous, without newlines and spaces.
 
 I wrote a paragraph in advance, you can try it!
 
 I hope you can continue to support CODEVEIN created by Shift and Bandai Namco! I also hope we have more interesting new content in the future!
 Enjoy it!
+
+PS: I welcome you to share the score on this tool's Github website!
 
 HaoJun0823", "Help", MessageBoxButtons.OK, MessageBoxIcon.Information);
         }

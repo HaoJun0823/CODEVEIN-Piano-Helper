@@ -48,6 +48,7 @@
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(484, 361);
             this.Controls.Add(this.RichTextBox_About);
+            this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
             this.Name = "Form_About";
             this.Text = "About";
             this.ResumeLayout(false);

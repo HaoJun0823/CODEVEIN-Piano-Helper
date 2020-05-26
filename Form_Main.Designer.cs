@@ -206,6 +206,7 @@
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(784, 361);
             this.Controls.Add(this.TableLayoutPanel_Main);
+            this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
             this.Name = "Form_Main";
             this.Text = "CODEVEIN Piano Helper By HaoJun0823";
             this.FormClosing += new System.Windows.Forms.FormClosingEventHandler(this.Form_Main_FormClosing);
