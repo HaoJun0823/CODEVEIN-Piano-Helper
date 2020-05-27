@@ -43,10 +43,32 @@ namespace CODEVEINPianoHelper
 
         }
 
+
+        private String GetMusicScoreString()
+        {
+            StringBuilder strBuild = new StringBuilder();
+
+
+            for (int i = 0; i < RichTextBox_MusicScore.Lines.Count(); i++)
+            {
+                strBuild.Append(RichTextBox_MusicScore.Lines[i]);
+            }
+
+
+            Global.PushMessage(LogLevel.INFO, "Get the control script:"+strBuild.ToString());
+
+
+            return strBuild.ToString();
+        }
+
         private void Button_Start_Click(object sender, EventArgs e)
         {
 
-            Global.ScriptCommandList = Script.Convert(RichTextBox_MusicScore.Text);
+
+
+
+
+            Global.ScriptCommandList = Script.Convert(GetMusicScoreString());
             Global.PushScriptCommandToLog();
 
 
@@ -130,7 +152,7 @@ When you have written or shared the script yourself, you can paste it in the box
 ""T"" means delay, followed by a number(milliseconds), which means that the next operation will wait for X seconds to execute.
 The rest is the same as the button on the left, such as ""C2"", which is to simulate clicking the ""C2"" button on the left.
 Please use "";"" to split each instruction.If there is an error in the instruction, the log will prompt, of course, the operation status will also be written in the log.
-Please ensure that your script is continuous, without newlines and spaces.
+Please ensure that your script is continuous, without newlines and spaces.(Version 1.0.0.1: You can wrap! But keep the format as clean as possible.)
 
 I wrote a paragraph in advance, you can try it!
 

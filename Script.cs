@@ -12,10 +12,13 @@ namespace CODEVEINPianoHelper
 
         public static IList<ScriptCommand> Convert(String script)
         {
-            script.ToUpper();
-            script.Replace((char)13, (char)0);
-            script.Replace((char)10, (char)0);
-            script.Replace((char)40, (char)0);
+            script = script.ToUpper();
+            script = script.Replace((char)13, (char)0);
+            script = script.Replace((char)10, (char)0);
+            script = script.Replace((char)32, (char)0);
+
+            Global.PushMessage(LogLevel.INFO, "Format the script:"+script);
+
             IList<ScriptCommand> list = new List<ScriptCommand>();
 
             script.Trim();
