@@ -112,8 +112,14 @@ namespace CODEVEINPianoHelper
 
         private void Form_Main_FormClosing(object sender, FormClosingEventArgs e)
         {
+
+            Global.StopMusicThread();
+
             MessageTimer.Stop();
             MessageTimer.Dispose();
+
+            
+
         }
 
         private void RichTextBox_Log_TextChanged(object sender, EventArgs e)
@@ -133,8 +139,7 @@ namespace CODEVEINPianoHelper
         private void Button_Stop_Click(object sender, EventArgs e)
         {
 
-            Global.MusicThread.Abort();
-            Global.PushMessage(LogLevel.WARNING, "The user stopped script!");
+            Global.StopMusicThread();
         }
 
         private void Button_Help_Click(object sender, EventArgs e)

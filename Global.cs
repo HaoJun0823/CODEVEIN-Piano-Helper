@@ -20,6 +20,11 @@ namespace CODEVEINPianoHelper
         private static ConcurrentQueue<String> MessageQueue;
         public static int delay;
 
+        public static void StopMusicThread()
+        {
+            Global.MusicThread.Abort();
+            Global.PushMessage(LogLevel.WARNING, "The user stopped script!");
+        }
 
         public static void Initilization()
         {

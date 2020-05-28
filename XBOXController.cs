@@ -56,6 +56,7 @@ namespace CODEVEINPianoHelper
             {
                 new Thread(new ThreadStart(delegate
                 {
+                    controller.SetButtonState((Xbox360Button)key.XboxButton, false);
                     controller.SetButtonState((Xbox360Button)key.XboxButton, true);
                     Thread.Sleep(Global.delay);
                     controller.SetButtonState((Xbox360Button)key.XboxButton, false);
@@ -69,6 +70,7 @@ namespace CODEVEINPianoHelper
             {
                 new Thread(new ThreadStart(delegate
                 {
+                    controller.SetSliderValue((Xbox360Slider)key.XboxButton, 0);
                     controller.SetSliderValue((Xbox360Slider)key.XboxButton, 255);
                     Thread.Sleep(Global.delay);
                     controller.SetSliderValue((Xbox360Slider)key.XboxButton, 0);
