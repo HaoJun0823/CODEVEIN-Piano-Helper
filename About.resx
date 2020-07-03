@@ -120,8 +120,10 @@
   <data name="RichTextBox_About.Text" xml:space="preserve">
     <value>The tool simulates the Xbox controller through ViGEmBus, allowing users to play the piano in CODEVEIN, written by HaoJun0823 through C# (.NET 4.5.2).
 Hope CODEVEIN can develop into a great game in the future! I hope there is more new content!
+      
 Author's note: Love my son Okami Yuuki forever!
 
+Piano Technical By Inanko
 Tested on game version 1.53.93354 Windows10 1909 X64 (Steam version)
 AMD CPU and NVIDIA GPU.
 Please right-click the file to view the version number.
