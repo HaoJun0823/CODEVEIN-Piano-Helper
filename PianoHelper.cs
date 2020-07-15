@@ -89,6 +89,7 @@ namespace CODEVEINPianoHelper
         public Xbox360Property XboxButton { get; set; }
         public Button FormButton { get; set; }
 
+
         public PianoKey(String note, Xbox360Property XboxButton, Button FormButton)
         {
             this.Note = note;

@@ -5,8 +5,10 @@ using System;
 using System.Collections.Generic;
 using System.ComponentModel;
 using System.Data;
+using System.Diagnostics;
 using System.Drawing;
 using System.Linq;
+using System.Runtime.CompilerServices;
 using System.Text;
 using System.Threading;
 using System.Windows.Forms;
@@ -29,8 +31,48 @@ namespace CODEVEINPianoHelper
                 Button btn = ((PianoKey)i.Value).FormButton;
                 Global.PushMessage(LogLevel.INFO, String.Format("Add button {0} to form.", btn.Text));
                 this.FlowLayoutPanel_ButtonGroup.Controls.Add(btn);
+
+                Button btn2 = new Button();
+
+                btn2.Text = i.Value.Note + ";";
+
+                btn2.MouseClick += EditorButton_Click;
+
+                this.FlowLayoutPanel_EditorKey.Controls.Add(btn2);
+
+                Global.PushMessage(LogLevel.INFO, String.Format("Add button {0} to editor.", btn2.Text));
+
             }
 
+            for(int i = 100; i <= 500; i+=50)
+            {
+                Button btn = new Button();
+                btn.Text = "T" + i+";";
+
+                
+
+                btn.MouseClick += EditorButton_Click;
+
+                this.FlowLayoutPanel_EditorTime.Controls.Add(btn);
+
+                Global.PushMessage(LogLevel.INFO, String.Format("Add button {0} to editor.", btn.Text));
+
+            }
+
+
+
+        }
+
+        public void EditorButton_Click(object sender, EventArgs e)
+        {
+            Button btn = sender as Button;
+
+            Global.PushMessage(LogLevel.INFO, String.Format("Input {0} to scipt",btn.Text));
+
+            this.RichTextBox_MusicScore.Text = this.RichTextBox_MusicScore.Text + btn.Text;
+            this.RichTextBox_MusicScore.Focus();
+            this.RichTextBox_MusicScore.Select(this.RichTextBox_MusicScore.Text.Length, 0);
+            this.RichTextBox_MusicScore.ScrollToCaret();
 
 
 
@@ -113,12 +155,22 @@ namespace CODEVEINPianoHelper
         private void Form_Main_FormClosing(object sender, FormClosingEventArgs e)
         {
 
+            try { 
+
             Global.StopMusicThread();
 
             MessageTimer.Stop();
             MessageTimer.Dispose();
 
-            
+            Global.XboxController.controller.Disconnect();
+            Global.XboxController = null;
+
+            }catch(Exception ex)
+            {
+                Console.WriteLine(ex.ToString());
+            }
+
+
 
         }
 
@@ -172,6 +224,24 @@ HaoJun0823", "Help", MessageBoxButtons.OK, MessageBoxIcon.Information);
         private void Button_About_Click(object sender, EventArgs e)
         {
             new Form_About().ShowDialog();
+
+        }
+
+        private void Button_Score_Click(object sender, EventArgs e)
+        {
+            System.Diagnostics.Process.Start("explorer.exe", "https://github.com/HaoJun0823/CODEVEIN-Piano-Helper/issues/2");
+            Global.PushMessage(LogLevel.INFO, String.Format("Open https://github.com/HaoJun0823/CODEVEIN-Piano-Helper/issues/2"));
+        }
+
+        private void Button_SwitchXbox_Click(object sender, EventArgs e)
+        {
+            this.RichTextBox_MusicScore.Text = this.RichTextBox_MusicScore.Text + "\n";
+
+            Global.PushMessage(LogLevel.INFO, String.Format("Feed!"));
+
+            this.RichTextBox_MusicScore.Focus();
+            this.RichTextBox_MusicScore.Select(this.RichTextBox_MusicScore.Text.Length,0);
+            this.RichTextBox_MusicScore.ScrollToCaret();
 
         }
     }

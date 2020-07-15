@@ -22,8 +22,13 @@ namespace CODEVEINPianoHelper
 
         public static void StopMusicThread()
         {
+
+            if (Global.MusicThread != null && Global.MusicThread.IsAlive) { 
+
             Global.MusicThread.Abort();
             Global.PushMessage(LogLevel.WARNING, "The user stopped script!");
+
+            }
         }
 
         public static void Initilization()
